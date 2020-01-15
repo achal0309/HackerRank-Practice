@@ -1,0 +1,36 @@
+#include<stdio.h>
+int difference(int arr[50][50],int n)
+{
+	int i,j,sum=0,bum=0,mum=0,k;
+	for(i=0;i<n;i++)
+	for(j=0;j<n;j++)
+	{
+		if(i==j)
+		sum=sum+arr[i][j];
+	}
+	for(i=0;i<n;i++)
+	for(j=0;j<n;j++)
+	{
+		k=i+j;
+		if(k==n-1)
+		{
+			bum=bum+arr[i][j];
+		}
+	}
+	if(sum>bum)
+	mum=sum-bum;
+	else
+	mum=bum-sum;
+	return mum;	
+}
+int main()
+{
+	int n,i,j,arr[50][50],num;
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	for(j=0;j<n;j++)
+	scanf("%d",&arr[i][j]);
+	num=difference(arr,n);
+	printf("%d",num);	
+	return 0;
+}
